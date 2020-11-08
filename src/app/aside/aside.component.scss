@@ -1,0 +1,39 @@
+.aside{
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width:165px;
+  height: calc(100vh - 45px - 20px);
+  padding: 10px;
+}
+.tools-list{
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none; /* Убираем маркеры */
+
+  .tools-list__value{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0px;
+    margin-bottom: 5px;
+    &:hover{
+      cursor: pointer;
+      color: rgb(16, 146, 163);
+    }
+  }
+  .tools-list__value_active{
+    color: rgb(16, 146, 163);
+  }
+
+}
+
+.tool{
+  width: 100px;
+  margin-top: 20px;
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(16, 146, 163);
+  }
+}

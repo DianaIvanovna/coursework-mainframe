@@ -1,0 +1,31 @@
+.page{
+  display:flex;
+  flex-direction: column;
+}
+.header{
+  width: 100%;
+  height: 45px;
+  background-color: rgb(16, 146, 163);
+  padding-left: 40px;
+  box-sizing: border-box;
+  .header__title{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 45px;
+    color: #FFFFFF;
+    margin: 0px;
+  }
+}
+.main{
+  display:flex;
+}
+.workArea{
+  width: 100%;
+  height: calc(100vh - 45px);
+  background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+  background-size: 25px 25px;
+  background-position: center center;
+  position: relative;
+}

@@ -1,0 +1,11 @@
+<aside class="aside">
+  <ul class="tools-list">
+    <li class="tools-list__value" (click)="showInputSignal = !showInputSignal" [class.tools-list__value_active]="showInputSignal">Входной сигнал</li>
+    <li class="tools-list__value">And</li>
+    <li class="tools-list__value">Or</li>
+  </ul>
+  <div *ngIf="showInputSignal">
+    <img class="tool" src="./assets/img/0.jpg" alt="Input Signal 0">
+    <img class="tool" src="./assets/img/1.jpg" alt="Input Signal 1">
+  </div>
+</aside>
