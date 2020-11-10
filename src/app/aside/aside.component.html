@@ -4,8 +4,8 @@
     <li class="tools-list__value">And</li>
     <li class="tools-list__value">Or</li>
   </ul>
-  <div *ngIf="showInputSignal">
-    <img class="tool" src="./assets/img/0.jpg" alt="Input Signal 0">
-    <img class="tool" src="./assets/img/1.jpg" alt="Input Signal 1">
+  <div *ngIf="showInputSignal" (click)="addTool($event)">
+    <img class="tool Input0" src="./assets/img/0.jpg" alt="Input Signal 0">
+    <img class="tool Input1" src="./assets/img/1.jpg" alt="Input Signal 1">
   </div>
 </aside>

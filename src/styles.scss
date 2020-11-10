@@ -1,3 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("./assets/normalize.scss");
 @import url("./assets/fonts.css");
+
+
+.workArea__el_moving  {
+  box-shadow: 0 0 5px rgb(163, 16, 16) !important;
+}
+.workArea__el{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  img{
+    width: 100px;
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(16, 146, 163);
+  }
+  }
+}
+

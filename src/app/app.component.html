@@ -3,7 +3,7 @@
     <h1 class="header__title">Конструктор электронных схем</h1>
   </header>
   <div class="main">
-    <app-aside></app-aside>
-    <div class="workArea"></div>
+    <app-aside (addElement)="newElement($event)" ></app-aside>
+    <div class="workArea" #workArea></div>
   </div>
 </div>
