@@ -22,6 +22,9 @@ export class AsideComponent implements OnInit {
     And : false,
     Or : false,
     Not: false,
+    MP:false,
+    CD:false,
+    DC:false,
   }
 
   constructor() {}
@@ -74,8 +77,23 @@ export class AsideComponent implements OnInit {
         <p class="outputValue"></p>
       </div>`,
       });
+    }else if (event.target.classList.contains("multiplexer")){
+      this.addElement.emit({
+        element: 'multiplexer',
+        htmlEl: ` <div class="logEl multiplexer">
+        <img class="tool multiplexer" src="./assets/img/мультиплексор.jpg" alt="multiplexer">
+        <p class="inputValue_1"></p>
+        <p class="inputValue_2"></p>
+        <p class="inputValue_3"></p>
+        <p class="inputValue_4"></p>
+        <p class="inputValue_5"></p>
+        <p class="inputValue_6"></p>
+        <p class="outputValue"></p>
+      </div>`,
+      });
     }
   }
+
 
   show(value){
     for (let layer in this.showlayer){

@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild ,OnInit} from '@angular/core';
 import { InputSignalService } from "./services/input-signal.service";
 import { LogElOrAndService } from './services/log-el-or-and.service';
 import { LogElNotService } from './services/log-el-not.service';
+import { MultiplexerService } from "./services/multiplexer.service";
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,11 @@ export class AppComponent implements OnInit {
   title = 'courseworkMainframe';
   @ViewChild("workArea") workArea:ElementRef;
   @ViewChild("canvas", {static: true}) canvas:ElementRef;
-  x;
-  y;
-
   constructor(
     public inputSignalService: InputSignalService,
     public logElOrAndService: LogElOrAndService,
-    public logElNotService: LogElNotService){
+    public logElNotService: LogElNotService,
+    public multiplexerService: MultiplexerService,){
     }
   ngOnInit(): void {
     //подгоняем canvas под правильный масштаб
@@ -40,7 +39,9 @@ export class AppComponent implements OnInit {
       case 'And':  this.logElOrAndService.addElement(div, 'and'); break;
       case 'Or': this.logElOrAndService.addElement(div, 'or'); break;
       case 'Not': this.logElNotService.addElement(div,'not');break;
+      case 'multiplexer': this.multiplexerService.addElement(div);break;
     }
+
 
   }
 }

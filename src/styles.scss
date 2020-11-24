@@ -52,3 +52,41 @@
     right: 10px;
   }
 }
+
+.multiplexer{
+  .inputValue_1{
+    position: absolute;
+    top: 12px;
+    left: 0px;
+  }
+  .inputValue_2{
+    position: absolute;
+    top: 35px;
+    left: 0px;
+  }
+  .inputValue_3{
+    position: absolute;
+    top: 60px;
+    left: 0px;
+  }
+  .inputValue_4{
+    position: absolute;
+    top: 82px;
+    left: 0px;
+  }
+  .inputValue_5{
+    position: absolute;
+    top: 108px;
+    left: 0px;
+  }
+  .inputValue_6{
+    position: absolute;
+    top: 135px;
+    left: 0px;
+  }
+  .outputValue{
+    position: absolute;
+    top: 75px;
+    right: 0px;
+  }
+}

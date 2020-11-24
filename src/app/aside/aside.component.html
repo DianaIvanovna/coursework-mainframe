@@ -4,6 +4,9 @@
     <li class="tools-list__value" (click)="show('And')" [class.tools-list__value_active]="showlayer.And">And</li>
     <li class="tools-list__value" (click)="show('Or')" [class.tools-list__value_active]="showlayer.Or">Or</li>
     <li class="tools-list__value" (click)="show('Not')" [class.tools-list__value_active]="showlayer.Not">Not</li>
+    <li class="tools-list__value" (click)="show('MP')" [class.tools-list__value_active]="showlayer.MP">Мультиплексор</li>
+    <li class="tools-list__value" (click)="show('DC')" [class.tools-list__value_active]="showlayer.DC">Дешифратор</li>
+    <li class="tools-list__value" (click)="show('CD')" [class.tools-list__value_active]="showlayer.CD">Шифратор</li>
   </ul>
   <div *ngIf="showlayer.InputSignal" (click)="addInputSignal($event)">
     <img class="tool Input0" src="./assets/img/0.jpg" alt="Input Signal 0">
@@ -21,6 +24,16 @@
     <img class="tool logElNot" src="./assets/img/not.jpg" alt="logical element not">
   </div>
 
+
+  <div *ngIf="showlayer.MP" (click)="addTool($event)">
+    <img class="tool multiplexer" src="./assets/img/мультиплексор.jpg" alt="multiplexer">
+  </div>
+  <div *ngIf="showlayer.CD" (click)="addTool($event)">
+    <img class="tool encoder" src="./assets/img/шифратор.jpg" alt="encoder">
+  </div>
+  <div *ngIf="showlayer.DC" (click)="addTool($event)">
+    <img class="tool decoder" src="./assets/img/дешифратор.jpg" alt="decoder">
+  </div>
 
 
 </aside>

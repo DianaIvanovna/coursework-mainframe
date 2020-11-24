@@ -25,7 +25,6 @@ export class LogElOrAndService {
   constructor(
     public dragAndDropService: DragAndDropService,
     public lineService: LineService) {
-
   }
 
   addElement(div, element){
