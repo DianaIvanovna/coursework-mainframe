@@ -68,7 +68,6 @@ export class DecoderService {
 
    // при двойном клике на элемент, получаем входной сигнал и рисуется линия
    receivingSignal(id, event){
-    console.log(this.decoders[id].numberOut)
     if (this.decoders[id].numberOut != 4){
       let data = {
         inputHtml: this.decoders[id].htmlEl,
@@ -77,28 +76,30 @@ export class DecoderService {
         value: this.decoders[id].outputValue[this.decoders[id].numberOut].value,
       };
       if (this.decoders[id].outputValue[0].value==undefined){ // значит кликнули, чтобы добавить входной сигнал
-        let flagCalcOutputValue = false;
-
-        for(let i=0;i<2;i+=1 ){ // проходим по всем входным значениеям
-          if (this.decoders[id].inputValue[i].value==undefined){ // если входное значение не известно - this.lineService.returnSignal
-            if (i==1) flagCalcOutputValue = true;
-            this.decoders[id].inputValue[i].value = this.lineService.returnSignal(data);
-            this.decoders[id].inputValue[i].html.innerText = `${this.decoders[id].inputValue[i].value}`;
-            break;
+        let buf = this.lineService.returnSignal(data);
+        if (buf != undefined){
+          let flagCalcOutputValue = false;
+          for(let i=0;i<2;i+=1 ){ // проходим по всем входным значениеям
+            if (this.decoders[id].inputValue[i].value==undefined){ // если входное значение не известно - this.lineService.returnSignal
+              if (i==1) flagCalcOutputValue = true;
+              this.decoders[id].inputValue[i].value = buf;
+              this.decoders[id].inputValue[i].html.innerText = `${this.decoders[id].inputValue[i].value}`;
+              break;
+            }
           }
-        }
-        if (flagCalcOutputValue){ // если все входные значения заполнены, то расчитываем выходное.
-          let x = this.decoders[id].inputValue[0].value;
-          let y = this.decoders[id].inputValue[1].value;
-          let out;
-          if (x==0 && y==0) out = 0;
-          if (x==0 && y==1) out = 1;
-          if (x==1 && y==0) out = 2;
-          if (x==1 && y==1) out = 3;
-          for(let i=0;i<4;i+=1 ){ // проходим по всем входным значениеям
-            if (i==out) this.decoders[id].outputValue[i].value = 1;
-            else this.decoders[id].outputValue[i].value = 0;
-            this.decoders[id].outputValue[i].html.innerText = `${this.decoders[id].outputValue[i].value}`;
+          if (flagCalcOutputValue){ // если все входные значения заполнены, то расчитываем выходное.
+            let x = this.decoders[id].inputValue[0].value;
+            let y = this.decoders[id].inputValue[1].value;
+            let out;
+            if (x==0 && y==0) out = 0;
+            if (x==0 && y==1) out = 1;
+            if (x==1 && y==0) out = 2;
+            if (x==1 && y==1) out = 3;
+            for(let i=0;i<4;i+=1 ){ // проходим по всем входным значениеям
+              if (i==out) this.decoders[id].outputValue[i].value = 1;
+              else this.decoders[id].outputValue[i].value = 0;
+              this.decoders[id].outputValue[i].html.innerText = `${this.decoders[id].outputValue[i].value}`;
+            }
           }
         }
       }else { // кликнули, чтобы выходной сигнал добавить как входной следующему элементу

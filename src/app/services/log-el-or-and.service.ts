@@ -60,22 +60,25 @@ export class LogElOrAndService {
       value: this.masLogElOrAnd[id].outputValue,
     };
     if (this.masLogElOrAnd[id].outputValue==undefined){ // значит кликнули, чтобы добавить входной сигнал
-      if (this.masLogElOrAnd[id].inputValue_1 == undefined){ // добавление первого входного сигнала
-        this.masLogElOrAnd[id].inputValue_1 = this.lineService.returnSignal(data);
-        this.masLogElOrAnd[id].inputValue_1_html.innerText = `${this.masLogElOrAnd[id].inputValue_1}`;
+      let buf = this.lineService.returnSignal(data);
+      if (buf!= undefined) {
+        if (this.masLogElOrAnd[id].inputValue_1 == undefined){ // добавление первого входного сигнала
+          this.masLogElOrAnd[id].inputValue_1 = buf;
+          this.masLogElOrAnd[id].inputValue_1_html.innerText = `${this.masLogElOrAnd[id].inputValue_1}`;
 
-      } else if (this.masLogElOrAnd[id].inputValue_2 == undefined){ // добавление второго входного сигнала
-        this.masLogElOrAnd[id].inputValue_2 = this.lineService.returnSignal(data);
-        this.masLogElOrAnd[id].inputValue_2_html.innerText = `${this.masLogElOrAnd[id].inputValue_2}`;
-        //расчет выходного сигнала
+        } else if (this.masLogElOrAnd[id].inputValue_2 == undefined){ // добавление второго входного сигнала
+          this.masLogElOrAnd[id].inputValue_2 = buf;
+          this.masLogElOrAnd[id].inputValue_2_html.innerText = `${this.masLogElOrAnd[id].inputValue_2}`;
+          //расчет выходного сигнала
 
-        if (this.masLogElOrAnd[id].element == 'and'){
-          this.masLogElOrAnd[id].outputValue = this.masLogElOrAnd[id].inputValue_1 &this.masLogElOrAnd[id].inputValue_2;
-        }else{
-          this.masLogElOrAnd[id].outputValue = this.masLogElOrAnd[id].inputValue_1 | this.masLogElOrAnd[id].inputValue_2;
+          if (this.masLogElOrAnd[id].element == 'and'){
+            this.masLogElOrAnd[id].outputValue = this.masLogElOrAnd[id].inputValue_1 &this.masLogElOrAnd[id].inputValue_2;
+          }else{
+            this.masLogElOrAnd[id].outputValue = this.masLogElOrAnd[id].inputValue_1 | this.masLogElOrAnd[id].inputValue_2;
+          }
+
+          this.masLogElOrAnd[id].outputValue_html.innerText = `${this.masLogElOrAnd[id].outputValue}`;
         }
-
-        this.masLogElOrAnd[id].outputValue_html.innerText = `${this.masLogElOrAnd[id].outputValue}`;
       }
     }else { // кликнули, чтобы выходной сигнал добавить как входной следующему элементу
       this.lineService.addValue(data);

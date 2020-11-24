@@ -56,11 +56,15 @@ export class LogElNotService {
       value: this.masLogElNot[id].outputValue,
     };
     if (this.masLogElNot[id].outputValue==undefined){ // значит кликнули, чтобы добавить входной сигнал
-      this.masLogElNot[id].inputValue_1 = this.lineService.returnSignal(data);
-      this.masLogElNot[id].inputValue_1_html.innerText = `${this.masLogElNot[id].inputValue_1}`;
+      let buf = this.lineService.returnSignal(data);
+      if (buf != undefined){
+        this.masLogElNot[id].inputValue_1 = this.lineService.returnSignal(data);
+        this.masLogElNot[id].inputValue_1_html.innerText = `${this.masLogElNot[id].inputValue_1}`;
 
-      this.masLogElNot[id].outputValue = + !(this.masLogElNot[id].inputValue_1);
-      this.masLogElNot[id].outputValue_html.innerText = `${this.masLogElNot[id].outputValue}`;
+        this.masLogElNot[id].outputValue = + !(this.masLogElNot[id].inputValue_1);
+        this.masLogElNot[id].outputValue_html.innerText = `${this.masLogElNot[id].outputValue}`;
+      }
+
     }else { // кликнули, чтобы выходной сигнал добавить как входной следующему элементу
       this.lineService.addValue(data);
     }
