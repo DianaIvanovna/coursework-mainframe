@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild ,OnInit} from '@angular/core';
 import { InputSignalService } from "./services/input-signal.service";
-import { LogElAndService } from './services/log-el-and.service';
+import { LogElOrAndService } from './services/log-el-or-and.service';
+import { LogElNotService } from './services/log-el-not.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ export class AppComponent implements OnInit {
   y;
 
   constructor(
-    public logElAndService: LogElAndService,
-    public inputSignalService: InputSignalService){
+    public inputSignalService: InputSignalService,
+    public logElOrAndService: LogElOrAndService,
+    public logElNotService: LogElNotService){
     }
   ngOnInit(): void {
     //подгоняем canvas под правильный масштаб
@@ -33,15 +35,12 @@ export class AppComponent implements OnInit {
     div.classList.add('workArea__el');
     div.innerHTML = event.htmlEl;
     this.workArea.nativeElement.append(div);
-
-    if (event.element === 'InputSignal'){
-      this.inputSignalService.addSignal(event, div);
+    switch(event.element){
+      case 'InputSignal': this.inputSignalService.addSignal(event, div); break;
+      case 'And':  this.logElOrAndService.addElement(div, 'and'); break;
+      case 'Or': this.logElOrAndService.addElement(div, 'or'); break;
+      case 'Not': this.logElNotService.addElement(div,'not');break;
     }
-    if (event.element === 'And'){
-      //&&&
-      this.logElAndService.addAnd(div);
-    }
-
 
   }
 }

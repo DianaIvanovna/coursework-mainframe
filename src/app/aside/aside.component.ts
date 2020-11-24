@@ -44,16 +44,37 @@ export class AsideComponent implements OnInit {
       });
     }
   }
-  addAnd(event){
-    this.addElement.emit({
-      element: 'And',
-      htmlEl: `  <div class="logEl">
-      <img class="tool logElAnd" src="./assets/img/and.jpg" alt="logical element and">
-      <p class="inputValue_1"></p>
-      <p class="inputValue_2"></p>
-      <p class="outputValue"></p>
-    </div>`,
-    });
+  addTool(event){
+    if (event.target.classList.contains("logElAnd")){
+      this.addElement.emit({
+        element: 'And',
+        htmlEl: `  <div class="logEl">
+        <img class="tool logElAnd" src="./assets/img/and.jpg" alt="logical element and">
+        <p class="inputValue_1"></p>
+        <p class="inputValue_2"></p>
+        <p class="outputValue"></p>
+      </div>`,
+      });
+    }else if (event.target.classList.contains("logElOr")){
+      this.addElement.emit({
+        element: 'Or',
+        htmlEl: `  <div class="logEl">
+        <img class="tool logElOr" src="./assets/img/or.jpg" alt="logical element or">
+        <p class="inputValue_1"></p>
+        <p class="inputValue_2"></p>
+        <p class="outputValue"></p>
+      </div>`,
+      });
+    }else if (event.target.classList.contains("logElNot")){
+      this.addElement.emit({
+        element: 'Not',
+        htmlEl: ` <div class="logEl">
+        <img class="tool logElNot" src="./assets/img/not.jpg" alt="logical element not">
+        <p class="inputValue_1"></p>
+        <p class="outputValue"></p>
+      </div>`,
+      });
+    }
   }
 
   show(value){

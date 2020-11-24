@@ -9,15 +9,17 @@
     <img class="tool Input0" src="./assets/img/0.jpg" alt="Input Signal 0">
     <img class="tool Input1" src="./assets/img/1.jpg" alt="Input Signal 1">
   </div>
-  <div *ngIf="showlayer.And" (click)="addAnd($event)">
+  <div *ngIf="showlayer.And" (click)="addTool($event)">
     <img class="tool logElAnd" src="./assets/img/and.jpg" alt="logical element and">
   </div>
-  <!-- <div *ngIf="showlayer.Or" (click)="addTool($event)">
+
+  <div *ngIf="showlayer.Or" (click)="addTool($event)">
     <img class="tool logElOr" src="./assets/img/or.jpg" alt="logical element or">
   </div>
+
   <div *ngIf="showlayer.Not" (click)="addTool($event)">
     <img class="tool logElNot" src="./assets/img/not.jpg" alt="logical element not">
-  </div> -->
+  </div>
 
 
 
