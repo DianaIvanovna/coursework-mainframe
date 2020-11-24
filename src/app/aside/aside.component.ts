@@ -91,8 +91,22 @@ export class AsideComponent implements OnInit {
         <p class="outputValue"></p>
       </div>`,
       });
+    }else if (event.target.classList.contains("decoder")){
+      this.addElement.emit({
+        element: 'decoder',
+        htmlEl: ` <div class="logEl decoder">
+        <img class="tool decoder" src="./assets/img/дешифратор.jpg" alt="decoder">
+        <p class="inputValue_1"></p>
+        <p class="inputValue_2"></p>
+        <p class="outputValue_1 outputValue"></p>
+        <p class="outputValue_2 outputValue"></p>
+        <p class="outputValue_3 outputValue"></p>
+        <p class="outputValue_4 outputValue"></p>
+      </div>`,
+      });
     }
   }
+
 
 
   show(value){

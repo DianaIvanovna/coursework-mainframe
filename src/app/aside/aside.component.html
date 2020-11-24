@@ -28,12 +28,13 @@
   <div *ngIf="showlayer.MP" (click)="addTool($event)">
     <img class="tool multiplexer" src="./assets/img/мультиплексор.jpg" alt="multiplexer">
   </div>
-  <div *ngIf="showlayer.CD" (click)="addTool($event)">
-    <img class="tool encoder" src="./assets/img/шифратор.jpg" alt="encoder">
-  </div>
   <div *ngIf="showlayer.DC" (click)="addTool($event)">
     <img class="tool decoder" src="./assets/img/дешифратор.jpg" alt="decoder">
   </div>
+  <div *ngIf="showlayer.CD" (click)="addTool($event)">
+    <img class="tool encoder" src="./assets/img/шифратор.jpg" alt="encoder">
+  </div>
+
 
 
 </aside>
