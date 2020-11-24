@@ -104,6 +104,19 @@ export class AsideComponent implements OnInit {
         <p class="outputValue_4 outputValue"></p>
       </div>`,
       });
+    }else if (event.target.classList.contains("encoder")){
+      this.addElement.emit({
+        element: 'encoder',
+        htmlEl: ` <div class="logEl encoder">
+        <img class="tool encoder" src="./assets/img/шифратор.jpg" alt="encoder">
+        <p class="inputValue_1"></p>
+        <p class="inputValue_2"></p>
+        <p class="inputValue_3"></p>
+        <p class="inputValue_4"></p>
+        <p class="outputValue_1 outputValue"></p>
+        <p class="outputValue_2 outputValue"></p>
+      </div>`,
+      });
     }
   }
 

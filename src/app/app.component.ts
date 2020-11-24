@@ -4,6 +4,7 @@ import { LogElOrAndService } from './services/log-el-or-and.service';
 import { LogElNotService } from './services/log-el-not.service';
 import { MultiplexerService } from "./services/multiplexer.service";
 import { DecoderService } from "./services/decoder.service";
+import { EncoderService } from "./services/encoder.service"
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit {
     public logElOrAndService: LogElOrAndService,
     public logElNotService: LogElNotService,
     public multiplexerService: MultiplexerService,
-    public decoderService: DecoderService,){
+    public decoderService: DecoderService,
+    public encoderService: EncoderService){
     }
   ngOnInit(): void {
     //подгоняем canvas под правильный масштаб
@@ -43,6 +45,7 @@ export class AppComponent implements OnInit {
       case 'Not': this.logElNotService.addElement(div,'not');break;
       case 'multiplexer': this.multiplexerService.addElement(div);break;
       case 'decoder': this.decoderService.addElement(div);break;
+      case 'encoder': this.encoderService.addElement(div);break;
     }
 
 
