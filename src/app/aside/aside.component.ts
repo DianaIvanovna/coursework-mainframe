@@ -2,7 +2,10 @@ import { Component, EventEmitter, OnInit, Output, ɵConsole } from '@angular/cor
 
 interface LogicalElement {
   element: string,
-  value: number,
+  value?: number,
+  inputValue_1?: undefined,
+  inputValue_2?: undefined,
+  outputValue?: undefined,
   htmlEl: string,
 }
 @Component({
@@ -14,13 +17,18 @@ interface LogicalElement {
 export class AsideComponent implements OnInit {
   @Output() addElement:EventEmitter<LogicalElement> = new EventEmitter;
 
-  showInputSignal = true;
+  showlayer = {
+    InputSignal: false,
+    And : false,
+    Or : false,
+    Not: false,
+  }
 
   constructor() {}
   ngOnInit(): void {
   }
 
-  addTool(event){
+  addInputSignal(event){
     if (event.target.classList.contains('Input0')){
       this.addElement.emit({
         element: 'InputSignal',
@@ -35,7 +43,23 @@ export class AsideComponent implements OnInit {
         htmlEl: `<img class="tool" src="./assets/img/1.jpg" alt="Input Signal 1">`,
       });
     }
-
+  }
+  addAnd(event){
+    this.addElement.emit({
+      element: 'And',
+      htmlEl: `  <div class="logEl">
+      <img class="tool logElAnd" src="./assets/img/and.jpg" alt="logical element and">
+      <p class="inputValue_1"></p>
+      <p class="inputValue_2"></p>
+      <p class="outputValue"></p>
+    </div>`,
+    });
   }
 
+  show(value){
+    for (let layer in this.showlayer){
+      if (layer === value) this.showlayer[layer] = true;
+      else this.showlayer[layer] = false;
+    }
+  }
 }

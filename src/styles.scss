@@ -19,3 +19,36 @@
   }
 }
 
+
+
+.activeEl{
+  box-shadow: 0 0 5px rgb(163, 16, 16) !important;
+}
+
+.logEl{
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  width: min-content;
+  .inputValue_1{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+  }
+  .inputValue_2{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 35px;
+    left: 20px;
+  }
+  .outputValue{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}

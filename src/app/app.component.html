@@ -4,6 +4,9 @@
   </header>
   <div class="main">
     <app-aside (addElement)="newElement($event)" ></app-aside>
-    <div class="workArea" #workArea></div>
+    <div class="workArea" #workArea>
+      <canvas class="canvas" id ="canvas" #canvas></canvas>
+    </div>
   </div>
 </div>
+
