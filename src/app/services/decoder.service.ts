@@ -109,7 +109,6 @@ export class DecoderService {
     }
   }
 
-  // подумай про выходы
 
 }
 
